@@ -89,8 +89,6 @@ public class StudyprogramValidator extends EObjectValidator {
 		switch (classifierID) {
 			case StudyprogramPackage.PROGRAM:
 				return validateProgram((Program)value, diagnostics, context);
-			case StudyprogramPackage.BASE:
-				return validateBase((Base)value, diagnostics, context);
 			case StudyprogramPackage.SPECIALIZATION:
 				return validateSpecialization((Specialization)value, diagnostics, context);
 			case StudyprogramPackage.SEMESTER:
@@ -99,8 +97,8 @@ public class StudyprogramValidator extends EObjectValidator {
 				return validateSlot((Slot)value, diagnostics, context);
 			case StudyprogramPackage.COURSE:
 				return validateCourse((Course)value, diagnostics, context);
-			case StudyprogramPackage.COURSE_CATALOG:
-				return validateCourseCatalog((CourseCatalog)value, diagnostics, context);
+			case StudyprogramPackage.DEPARTMENT:
+				return validateDepartment((Department)value, diagnostics, context);
 			case StudyprogramPackage.SEASON:
 				return validateSeason((Season)value, diagnostics, context);
 			default:
@@ -115,15 +113,6 @@ public class StudyprogramValidator extends EObjectValidator {
 	 */
 	public boolean validateProgram(Program program, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(program, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBase(Base base, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(base, diagnostics, context);
 	}
 
 	/**
@@ -256,8 +245,8 @@ public class StudyprogramValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCourseCatalog(CourseCatalog courseCatalog, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(courseCatalog, diagnostics, context);
+	public boolean validateDepartment(Department department, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(department, diagnostics, context);
 	}
 
 	/**

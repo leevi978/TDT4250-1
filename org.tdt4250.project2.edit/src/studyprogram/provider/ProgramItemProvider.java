@@ -125,7 +125,8 @@ public class ProgramItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(StudyprogramPackage.Literals.PROGRAM__PROGRAM_BASE);
+			childrenFeatures.add(StudyprogramPackage.Literals.PROGRAM__BASE_SEMESTERS);
+			childrenFeatures.add(StudyprogramPackage.Literals.PROGRAM__SPECIALIZATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -185,7 +186,8 @@ public class ProgramItemProvider
 			case StudyprogramPackage.PROGRAM__TOTAL_BASE_CREDITS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case StudyprogramPackage.PROGRAM__PROGRAM_BASE:
+			case StudyprogramPackage.PROGRAM__BASE_SEMESTERS:
+			case StudyprogramPackage.PROGRAM__SPECIALIZATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -205,8 +207,13 @@ public class ProgramItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StudyprogramPackage.Literals.PROGRAM__PROGRAM_BASE,
-				 StudyprogramFactory.eINSTANCE.createBase()));
+				(StudyprogramPackage.Literals.PROGRAM__BASE_SEMESTERS,
+				 StudyprogramFactory.eINSTANCE.createSemester()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StudyprogramPackage.Literals.PROGRAM__SPECIALIZATIONS,
+				 StudyprogramFactory.eINSTANCE.createSpecialization()));
 	}
 
 	/**

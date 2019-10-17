@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.tdt4250.project2.studyprogram:Department xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.tdt4250.project2.studyprogram="https://org/tdt4250/project2/studyprogram">
+  <courses name="TDT4250" credits="7.5"/>
+  <courses name="TDT05" credits="7.5"/>
+  <courses name="TDT01" credits="7.5"/>
+  <courses name="TDT02" credits="7.5"/>
+  <courses name="TDT69420" credits="15.0"/>
+  <courses name="ALP101" credits="7.5"/>
+  <courses name="EXPH101" credits="7.5"/>
+  <courses name="TDT03" credits="7.5"/>
+  <courses name="TDT04" credits="7.5"/>
+  <courses name="TMA4100" credits="7.5"/>
+  <courses name="TMA4140" credits="7.5"/>
+  <courses name="TDT4100" credits="7.5"/>
+  <courses name="TMA4115" credits="7.5"/>
+  <courses name="TFE1043" credits="7.5"/>
+  <courses name="TMA4240" credits="7.5"/>
+  <courses name="TTM4100" credits="7.5"/>
+  <courses name="TDT4353" credits="7.5"/>
+  <courses name="EE5321" credits="7.5"/>
+  <courses name="IT2810" credits="7.5"/>
+  <courses name="TMA5324" credits="7.5"/>
+  <courses name="TFY4321" credits="7.5"/>
+  <courses name="TIØ4324" credits="7.5"/>
+  <courses name="PLS001" credits="7.5"/>
+  <courses name="KILL30" credits="15.0"/>
+  <courses name="ME4040" credits="7.5"/>
+  <courses name="THESIS" credits="30.0"/>
+  <programs name="Yearstudy in International Alpaca Studies">
+    <baseSemesters year="1">
+      <slots availableCourses="//@courses.5"/>
+      <slots availableCourses="//@courses.17"/>
+      <slots availableCourses="//@courses.6"/>
+      <slots availableCourses="//@courses.23"/>
+    </baseSemesters>
+    <baseSemesters season="Spring" year="1">
+      <slots availableCourses="//@courses.24"/>
+      <slots availableCourses="//@courses.22"/>
+      <slots availableCourses="//@courses.2"/>
+      <slots availableCourses="//@courses.11"/>
+    </baseSemesters>
+  </programs>
+  <programs name="Computer Science">
+    <baseSemesters year="1">
+      <slots availableCourses="//@courses.6"/>
+      <slots availableCourses="//@courses.2"/>
+      <slots availableCourses="//@courses.9"/>
+      <slots availableCourses="//@courses.14"/>
+    </baseSemesters>
+    <baseSemesters season="Spring" year="1">
+      <slots availableCourses="//@courses.10"/>
+      <slots availableCourses="//@courses.11"/>
+      <slots availableCourses="//@courses.13"/>
+      <slots availableCourses="//@courses.8"/>
+    </baseSemesters>
+    <baseSemesters year="2">
+      <slots availableCourses="//@courses.7"/>
+      <slots availableCourses="//@courses.12"/>
+      <slots availableCourses="//@courses.1"/>
+      <slots availableCourses="//@courses.13"/>
+    </baseSemesters>
+    <baseSemesters season="Spring" year="2">
+      <slots availableCourses="//@courses.16"/>
+      <slots availableCourses="//@courses.4"/>
+      <slots availableCourses="//@courses.0"/>
+      <slots availableCourses="//@courses.15"/>
+    </baseSemesters>
+    <baseSemesters year="5">
+      <slots availableCourses="//@courses.22"/>
+      <slots availableCourses="//@courses.23"/>
+      <slots availableCourses="//@courses.24"/>
+    </baseSemesters>
+    <baseSemesters season="Spring" year="5">
+      <slots availableCourses="//@courses.25"/>
+    </baseSemesters>
+    <specializations name="Software systems">
+      <specializationSemesters year="3">
+        <slots availableCourses="//@courses.0"/>
+        <slots availableCourses="//@courses.16"/>
+        <slots availableCourses="//@courses.19"/>
+        <slots availableCourses="//@courses.18 //@courses.3 //@courses.8 //@courses.4"/>
+      </specializationSemesters>
+      <specializationSemesters season="Spring" year="3">
+        <slots availableCourses="//@courses.3"/>
+        <slots availableCourses="//@courses.0"/>
+        <slots availableCourses="//@courses.20"/>
+        <slots availableCourses="//@courses.21"/>
+      </specializationSemesters>
+      <additionalSpecializations name="Software Development">
+        <specializationSemesters year="4">
+          <slots availableCourses="//@courses.16"/>
+          <slots availableCourses="//@courses.13"/>
+          <slots availableCourses="//@courses.18"/>
+          <slots availableCourses="//@courses.1"/>
+        </specializationSemesters>
+        <specializationSemesters season="Spring" year="4">
+          <slots availableCourses="//@courses.11"/>
+          <slots availableCourses="//@courses.8"/>
+          <slots availableCourses="//@courses.13"/>
+          <slots availableCourses="//@courses.16"/>
+        </specializationSemesters>
+      </additionalSpecializations>
+      <additionalSpecializations name="Interaction Design">
+        <specializationSemesters year="4">
+          <slots availableCourses="//@courses.17"/>
+          <slots availableCourses="//@courses.8"/>
+          <slots availableCourses="//@courses.16"/>
+          <slots availableCourses="//@courses.12"/>
+        </specializationSemesters>
+        <specializationSemesters season="Spring" year="4">
+          <slots availableCourses="//@courses.10 //@courses.14"/>
+          <slots availableCourses="//@courses.18"/>
+          <slots availableCourses="//@courses.1"/>
+          <slots availableCourses="//@courses.4"/>
+        </specializationSemesters>
+      </additionalSpecializations>
+    </specializations>
+    <specializations name="Artificial Intelligence">
+      <specializationSemesters year="3">
+        <slots availableCourses="//@courses.7 //@courses.24"/>
+        <slots availableCourses="//@courses.11"/>
+        <slots availableCourses="//@courses.4"/>
+        <slots availableCourses="//@courses.14"/>
+      </specializationSemesters>
+      <specializationSemesters season="Spring" year="3">
+        <slots availableCourses="//@courses.6"/>
+        <slots availableCourses="//@courses.24"/>
+        <slots availableCourses="//@courses.8"/>
+        <slots availableCourses="//@courses.0"/>
+      </specializationSemesters>
+      <specializationSemesters year="4">
+        <slots availableCourses="//@courses.3 //@courses.23"/>
+        <slots availableCourses="//@courses.17 //@courses.24"/>
+        <slots availableCourses="//@courses.0"/>
+        <slots availableCourses="//@courses.7"/>
+      </specializationSemesters>
+      <specializationSemesters season="Spring" year="4">
+        <slots availableCourses="//@courses.16"/>
+        <slots availableCourses="//@courses.22"/>
+        <slots availableCourses="//@courses.2"/>
+        <slots availableCourses="//@courses.16"/>
+      </specializationSemesters>
+    </specializations>
+  </programs>
+</org.tdt4250.project2.studyprogram:Department>

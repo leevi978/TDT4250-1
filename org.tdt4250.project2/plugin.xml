@@ -14,4 +14,11 @@
             genModel="model/studyprogram.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated studyprogram -->
+      <parser
+            type="studyprogram"
+            class="studyprogram.util.StudyprogramResourceFactoryImpl"/>
+   </extension>
+
 </plugin>

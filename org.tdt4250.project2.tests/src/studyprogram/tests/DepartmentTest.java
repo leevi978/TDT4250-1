@@ -6,24 +6,24 @@ import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
-import studyprogram.Base;
+import studyprogram.Department;
 import studyprogram.StudyprogramFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Base</b></em>'.
+ * A test case for the model object '<em><b>Department</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class BaseTest extends TestCase {
+public class DepartmentTest extends TestCase {
 
 	/**
-	 * The fixture for this Base test case.
+	 * The fixture for this Department test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Base fixture = null;
+	protected Department fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class BaseTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(BaseTest.class);
+		TestRunner.run(DepartmentTest.class);
 	}
 
 	/**
-	 * Constructs a new Base test case with the given name.
+	 * Constructs a new Department test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BaseTest(String name) {
+	public DepartmentTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Base test case.
+	 * Sets the fixture for this Department test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Base fixture) {
+	protected void setFixture(Department fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Base test case.
+	 * Returns the fixture for this Department test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Base getFixture() {
+	protected Department getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class BaseTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(StudyprogramFactory.eINSTANCE.createBase());
+		setFixture(StudyprogramFactory.eINSTANCE.createDepartment());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class BaseTest extends TestCase {
 		setFixture(null);
 	}
 
-} //BaseTest
+} //DepartmentTest

@@ -2,18 +2,21 @@
  */
 package studyprogram.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import studyprogram.Base;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import studyprogram.Program;
 import studyprogram.Semester;
-import studyprogram.Slot;
+import studyprogram.Specialization;
 import studyprogram.StudyprogramPackage;
 
 /**
@@ -25,8 +28,8 @@ import studyprogram.StudyprogramPackage;
  * </p>
  * <ul>
  *   <li>{@link studyprogram.impl.ProgramImpl#getName <em>Name</em>}</li>
- *   <li>{@link studyprogram.impl.ProgramImpl#getProgramBase <em>Program Base</em>}</li>
- *   <li>{@link studyprogram.impl.ProgramImpl#getTotalBaseCredits <em>Total Base Credits</em>}</li>
+ *   <li>{@link studyprogram.impl.ProgramImpl#getBaseSemesters <em>Base Semesters</em>}</li>
+ *   <li>{@link studyprogram.impl.ProgramImpl#getSpecializations <em>Specializations</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,24 +56,24 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProgramBase() <em>Program Base</em>}' containment reference.
+	 * The cached value of the '{@link #getBaseSemesters() <em>Base Semesters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProgramBase()
+	 * @see #getBaseSemesters()
 	 * @generated
 	 * @ordered
 	 */
-	protected Base programBase;
+	protected EList<Semester> baseSemesters;
 
 	/**
-	 * The default value of the '{@link #getTotalBaseCredits() <em>Total Base Credits</em>}' attribute.
+	 * The cached value of the '{@link #getSpecializations() <em>Specializations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTotalBaseCredits()
+	 * @see #getSpecializations()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double TOTAL_BASE_CREDITS_EDEFAULT = 0.0;
+	protected EList<Specialization> specializations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,23 +123,11 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
-	public Base getProgramBase() {
-		return programBase;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProgramBase(Base newProgramBase, NotificationChain msgs) {
-		Base oldProgramBase = programBase;
-		programBase = newProgramBase;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StudyprogramPackage.PROGRAM__PROGRAM_BASE, oldProgramBase, newProgramBase);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Semester> getBaseSemesters() {
+		if (baseSemesters == null) {
+			baseSemesters = new EObjectContainmentEList<Semester>(Semester.class, this, StudyprogramPackage.PROGRAM__BASE_SEMESTERS);
 		}
-		return msgs;
+		return baseSemesters;
 	}
 
 	/**
@@ -145,72 +136,11 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
-	public void setProgramBase(Base newProgramBase) {
-		if (newProgramBase != programBase) {
-			NotificationChain msgs = null;
-			if (programBase != null)
-				msgs = ((InternalEObject)programBase).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StudyprogramPackage.PROGRAM__PROGRAM_BASE, null, msgs);
-			if (newProgramBase != null)
-				msgs = ((InternalEObject)newProgramBase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StudyprogramPackage.PROGRAM__PROGRAM_BASE, null, msgs);
-			msgs = basicSetProgramBase(newProgramBase, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<Specialization> getSpecializations() {
+		if (specializations == null) {
+			specializations = new EObjectContainmentEList<Specialization>(Specialization.class, this, StudyprogramPackage.PROGRAM__SPECIALIZATIONS);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyprogramPackage.PROGRAM__PROGRAM_BASE, newProgramBase, newProgramBase));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public double getTotalBaseCredits() {
-		// TODO: implement this method to return the 'Total Base Credits' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		double credits = 0;
-		for(Semester semester: this.getProgramBase().getBaseSemesters()) {
-			for(Slot slot: semester.getSlots()) {
-				credits += slot.getSelectedCourse().getCredits();
-			}
-		}
-		return credits;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTotalBaseCredits(double newTotalBaseCredits) {
-		// TODO: implement this method to set the 'Total Base Credits' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void unsetTotalBaseCredits() {
-		// TODO: implement this method to unset the 'Total Base Credits' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isSetTotalBaseCredits() {
-		// TODO: implement this method to return whether the 'Total Base Credits' attribute is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return specializations;
 	}
 
 	/**
@@ -221,8 +151,10 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StudyprogramPackage.PROGRAM__PROGRAM_BASE:
-				return basicSetProgramBase(null, msgs);
+			case StudyprogramPackage.PROGRAM__BASE_SEMESTERS:
+				return ((InternalEList<?>)getBaseSemesters()).basicRemove(otherEnd, msgs);
+			case StudyprogramPackage.PROGRAM__SPECIALIZATIONS:
+				return ((InternalEList<?>)getSpecializations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -237,10 +169,10 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 		switch (featureID) {
 			case StudyprogramPackage.PROGRAM__NAME:
 				return getName();
-			case StudyprogramPackage.PROGRAM__PROGRAM_BASE:
-				return getProgramBase();
-			case StudyprogramPackage.PROGRAM__TOTAL_BASE_CREDITS:
-				return getTotalBaseCredits();
+			case StudyprogramPackage.PROGRAM__BASE_SEMESTERS:
+				return getBaseSemesters();
+			case StudyprogramPackage.PROGRAM__SPECIALIZATIONS:
+				return getSpecializations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,11 +189,13 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			case StudyprogramPackage.PROGRAM__NAME:
 				setName((String)newValue);
 				return;
-			case StudyprogramPackage.PROGRAM__PROGRAM_BASE:
-				setProgramBase((Base)newValue);
+			case StudyprogramPackage.PROGRAM__BASE_SEMESTERS:
+				getBaseSemesters().clear();
+				getBaseSemesters().addAll((Collection<? extends Semester>)newValue);
 				return;
-			case StudyprogramPackage.PROGRAM__TOTAL_BASE_CREDITS:
-				setTotalBaseCredits((Double)newValue);
+			case StudyprogramPackage.PROGRAM__SPECIALIZATIONS:
+				getSpecializations().clear();
+				getSpecializations().addAll((Collection<? extends Specialization>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -278,11 +212,11 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			case StudyprogramPackage.PROGRAM__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case StudyprogramPackage.PROGRAM__PROGRAM_BASE:
-				setProgramBase((Base)null);
+			case StudyprogramPackage.PROGRAM__BASE_SEMESTERS:
+				getBaseSemesters().clear();
 				return;
-			case StudyprogramPackage.PROGRAM__TOTAL_BASE_CREDITS:
-				unsetTotalBaseCredits();
+			case StudyprogramPackage.PROGRAM__SPECIALIZATIONS:
+				getSpecializations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -298,10 +232,10 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 		switch (featureID) {
 			case StudyprogramPackage.PROGRAM__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case StudyprogramPackage.PROGRAM__PROGRAM_BASE:
-				return programBase != null;
-			case StudyprogramPackage.PROGRAM__TOTAL_BASE_CREDITS:
-				return isSetTotalBaseCredits();
+			case StudyprogramPackage.PROGRAM__BASE_SEMESTERS:
+				return baseSemesters != null && !baseSemesters.isEmpty();
+			case StudyprogramPackage.PROGRAM__SPECIALIZATIONS:
+				return specializations != null && !specializations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

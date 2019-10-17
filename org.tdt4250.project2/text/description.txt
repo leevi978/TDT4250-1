@@ -9,10 +9,6 @@ Package studyprogram <https://org/tdt4250/project2/studyprogram>
 
   Class Program
     Attribute name : EString
-    Reference programBase : Base<<1..1>>
-    Attribute /totalBaseCredits : EDouble<<1..1>>
-
-  Class Base
     Reference baseSemesters : Semester<<1..*>>
     Reference specializations : Specialization<<0..*>>
 
@@ -34,8 +30,10 @@ Package studyprogram <https://org/tdt4250/project2/studyprogram>
     Attribute name : EString
     Attribute credits : EDouble<<1..1>>
 
-  Class CourseCatalog
+  Class Department
     Reference courses : Course<<0..*>>
+    Reference programs : Program<<0..*>>
+    Attribute name : EString
 
   Enum Season
     Literal Fall = 0

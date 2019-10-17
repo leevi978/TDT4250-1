@@ -5,7 +5,8 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>studyprogram.ecore</foreignModel>
-  <genPackages prefix="Studyprogram" disposableProviderFactory="true" ecorePackage="studyprogram.ecore#/">
+  <genPackages prefix="Studyprogram" resource="XMI" disposableProviderFactory="true"
+      ecorePackage="studyprogram.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="studyprogram.ecore#//Season">
       <genEnumLiterals ecoreEnumLiteral="studyprogram.ecore#//Season/Fall"/>
       <genEnumLiterals ecoreEnumLiteral="studyprogram.ecore#//Season/Spring"/>
@@ -13,12 +14,8 @@
     </genEnums>
     <genClasses ecoreClass="studyprogram.ecore#//Program">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyprogram.ecore#//Program/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyprogram.ecore#//Program/programBase"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyprogram.ecore#//Program/totalBaseCredits"/>
-    </genClasses>
-    <genClasses ecoreClass="studyprogram.ecore#//Base">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyprogram.ecore#//Base/baseSemesters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyprogram.ecore#//Base/specializations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyprogram.ecore#//Program/baseSemesters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyprogram.ecore#//Program/specializations"/>
     </genClasses>
     <genClasses ecoreClass="studyprogram.ecore#//Specialization">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyprogram.ecore#//Specialization/name"/>
@@ -38,8 +35,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyprogram.ecore#//Course/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyprogram.ecore#//Course/credits"/>
     </genClasses>
-    <genClasses ecoreClass="studyprogram.ecore#//CourseCatalog">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyprogram.ecore#//CourseCatalog/courses"/>
+    <genClasses ecoreClass="studyprogram.ecore#//Department">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyprogram.ecore#//Department/courses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyprogram.ecore#//Department/programs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyprogram.ecore#//Department/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

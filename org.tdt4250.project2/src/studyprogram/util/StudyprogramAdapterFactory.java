@@ -72,10 +72,6 @@ public class StudyprogramAdapterFactory extends AdapterFactoryImpl {
 				return createProgramAdapter();
 			}
 			@Override
-			public Adapter caseBase(Base object) {
-				return createBaseAdapter();
-			}
-			@Override
 			public Adapter caseSpecialization(Specialization object) {
 				return createSpecializationAdapter();
 			}
@@ -92,8 +88,8 @@ public class StudyprogramAdapterFactory extends AdapterFactoryImpl {
 				return createCourseAdapter();
 			}
 			@Override
-			public Adapter caseCourseCatalog(CourseCatalog object) {
-				return createCourseCatalogAdapter();
+			public Adapter caseDepartment(Department object) {
+				return createDepartmentAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -126,20 +122,6 @@ public class StudyprogramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProgramAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link studyprogram.Base <em>Base</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see studyprogram.Base
-	 * @generated
-	 */
-	public Adapter createBaseAdapter() {
 		return null;
 	}
 
@@ -200,16 +182,16 @@ public class StudyprogramAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link studyprogram.CourseCatalog <em>Course Catalog</em>}'.
+	 * Creates a new adapter for an object of class '{@link studyprogram.Department <em>Department</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see studyprogram.CourseCatalog
+	 * @see studyprogram.Department
 	 * @generated
 	 */
-	public Adapter createCourseCatalogAdapter() {
+	public Adapter createDepartmentAdapter() {
 		return null;
 	}
 

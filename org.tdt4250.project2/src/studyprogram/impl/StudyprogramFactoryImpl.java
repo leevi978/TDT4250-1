@@ -58,12 +58,11 @@ public class StudyprogramFactoryImpl extends EFactoryImpl implements Studyprogra
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case StudyprogramPackage.PROGRAM: return createProgram();
-			case StudyprogramPackage.BASE: return createBase();
 			case StudyprogramPackage.SPECIALIZATION: return createSpecialization();
 			case StudyprogramPackage.SEMESTER: return createSemester();
 			case StudyprogramPackage.SLOT: return createSlot();
 			case StudyprogramPackage.COURSE: return createCourse();
-			case StudyprogramPackage.COURSE_CATALOG: return createCourseCatalog();
+			case StudyprogramPackage.DEPARTMENT: return createDepartment();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -116,17 +115,6 @@ public class StudyprogramFactoryImpl extends EFactoryImpl implements Studyprogra
 	 * @generated
 	 */
 	@Override
-	public Base createBase() {
-		BaseImpl base = new BaseImpl();
-		return base;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Specialization createSpecialization() {
 		SpecializationImpl specialization = new SpecializationImpl();
 		return specialization;
@@ -171,9 +159,9 @@ public class StudyprogramFactoryImpl extends EFactoryImpl implements Studyprogra
 	 * @generated
 	 */
 	@Override
-	public CourseCatalog createCourseCatalog() {
-		CourseCatalogImpl courseCatalog = new CourseCatalogImpl();
-		return courseCatalog;
+	public Department createDepartment() {
+		DepartmentImpl department = new DepartmentImpl();
+		return department;
 	}
 
 	/**

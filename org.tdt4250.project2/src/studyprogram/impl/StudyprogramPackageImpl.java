@@ -10,10 +10,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import studyprogram.Base;
 import studyprogram.Course;
-import studyprogram.CourseCatalog;
+import studyprogram.Department;
 import studyprogram.Program;
 import studyprogram.Season;
 import studyprogram.Semester;
@@ -37,13 +35,6 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 	 * @generated
 	 */
 	private EClass programEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass baseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,7 +69,7 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass courseCatalogEClass = null;
+	private EClass departmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,7 +175,7 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 	 * @generated
 	 */
 	@Override
-	public EReference getProgram_ProgramBase() {
+	public EReference getProgram_BaseSemesters() {
 		return (EReference)programEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -194,38 +185,8 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProgram_TotalBaseCredits() {
-		return (EAttribute)programEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getBase() {
-		return baseEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getBase_BaseSemesters() {
-		return (EReference)baseEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getBase_Specializations() {
-		return (EReference)baseEClass.getEStructuralFeatures().get(1);
+	public EReference getProgram_Specializations() {
+		return (EReference)programEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -374,8 +335,8 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 	 * @generated
 	 */
 	@Override
-	public EClass getCourseCatalog() {
-		return courseCatalogEClass;
+	public EClass getDepartment() {
+		return departmentEClass;
 	}
 
 	/**
@@ -384,8 +345,28 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 	 * @generated
 	 */
 	@Override
-	public EReference getCourseCatalog_Courses() {
-		return (EReference)courseCatalogEClass.getEStructuralFeatures().get(0);
+	public EReference getDepartment_Courses() {
+		return (EReference)departmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDepartment_Programs() {
+		return (EReference)departmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDepartment_Name() {
+		return (EAttribute)departmentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -429,12 +410,8 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 		// Create classes and their features
 		programEClass = createEClass(PROGRAM);
 		createEAttribute(programEClass, PROGRAM__NAME);
-		createEReference(programEClass, PROGRAM__PROGRAM_BASE);
-		createEAttribute(programEClass, PROGRAM__TOTAL_BASE_CREDITS);
-
-		baseEClass = createEClass(BASE);
-		createEReference(baseEClass, BASE__BASE_SEMESTERS);
-		createEReference(baseEClass, BASE__SPECIALIZATIONS);
+		createEReference(programEClass, PROGRAM__BASE_SEMESTERS);
+		createEReference(programEClass, PROGRAM__SPECIALIZATIONS);
 
 		specializationEClass = createEClass(SPECIALIZATION);
 		createEAttribute(specializationEClass, SPECIALIZATION__NAME);
@@ -454,8 +431,10 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 		createEAttribute(courseEClass, COURSE__NAME);
 		createEAttribute(courseEClass, COURSE__CREDITS);
 
-		courseCatalogEClass = createEClass(COURSE_CATALOG);
-		createEReference(courseCatalogEClass, COURSE_CATALOG__COURSES);
+		departmentEClass = createEClass(DEPARTMENT);
+		createEReference(departmentEClass, DEPARTMENT__COURSES);
+		createEReference(departmentEClass, DEPARTMENT__PROGRAMS);
+		createEAttribute(departmentEClass, DEPARTMENT__NAME);
 
 		// Create enums
 		seasonEEnum = createEEnum(SEASON);
@@ -493,12 +472,8 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_ProgramBase(), this.getBase(), null, "programBase", null, 1, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProgram_TotalBaseCredits(), ecorePackage.getEDouble(), "totalBaseCredits", null, 1, 1, Program.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-
-		initEClass(baseEClass, Base.class, "Base", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBase_BaseSemesters(), this.getSemester(), null, "baseSemesters", null, 1, -1, Base.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBase_Specializations(), this.getSpecialization(), null, "specializations", null, 0, -1, Base.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_BaseSemesters(), this.getSemester(), null, "baseSemesters", null, 1, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_Specializations(), this.getSpecialization(), null, "specializations", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specializationEClass, Specialization.class, "Specialization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpecialization_Name(), ecorePackage.getEString(), "name", null, 0, 1, Specialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -518,8 +493,10 @@ public class StudyprogramPackageImpl extends EPackageImpl implements Studyprogra
 		initEAttribute(getCourse_Name(), ecorePackage.getEString(), "name", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Credits(), ecorePackage.getEDouble(), "credits", null, 1, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(courseCatalogEClass, CourseCatalog.class, "CourseCatalog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCourseCatalog_Courses(), this.getCourse(), null, "courses", null, 0, -1, CourseCatalog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(departmentEClass, Department.class, "Department", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDepartment_Courses(), this.getCourse(), null, "courses", null, 0, -1, Department.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDepartment_Programs(), this.getProgram(), null, "programs", null, 0, -1, Department.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDepartment_Name(), ecorePackage.getEString(), "name", null, 0, 1, Department.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(seasonEEnum, Season.class, "Season");

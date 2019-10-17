@@ -31,15 +31,6 @@ public interface StudyprogramFactory extends EFactory {
 	Program createProgram();
 
 	/**
-	 * Returns a new object of class '<em>Base</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Base</em>'.
-	 * @generated
-	 */
-	Base createBase();
-
-	/**
 	 * Returns a new object of class '<em>Specialization</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,13 +67,13 @@ public interface StudyprogramFactory extends EFactory {
 	Course createCourse();
 
 	/**
-	 * Returns a new object of class '<em>Course Catalog</em>'.
+	 * Returns a new object of class '<em>Department</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Course Catalog</em>'.
+	 * @return a new object of class '<em>Department</em>'.
 	 * @generated
 	 */
-	CourseCatalog createCourseCatalog();
+	Department createDepartment();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -19,4 +19,6 @@ public interface SlotValidator {
 
 	boolean validateAvailableCourses(EList<Course> value);
 	boolean validateSelectedCourse(Course value);
+
+	boolean validateMandatory(boolean value);
 }

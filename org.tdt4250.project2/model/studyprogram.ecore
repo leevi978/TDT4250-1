@@ -7,13 +7,6 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Program">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="programBase" lowerBound="1"
-        eType="#//Base" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalBaseCredits" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        volatile="true" transient="true" unsettable="true" derived="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Base">
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseSemesters" lowerBound="1"
         upperBound="-1" eType="#//Semester" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specializations" upperBound="-1"
@@ -57,8 +50,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="credits" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CourseCatalog">
+  <eClassifiers xsi:type="ecore:EClass" name="Department">
     <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"
         eType="#//Course" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="programs" upperBound="-1"
+        eType="#//Program" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

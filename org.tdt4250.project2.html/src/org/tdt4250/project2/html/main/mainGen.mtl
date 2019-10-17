@@ -1,0 +1,61 @@
+[comment encoding = UTF-8 /]
+[module mainGen('platform:/resource/org.tdt4250.project2/model/studyprogram.ecore', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[template public mainGen(department : Department)]
+	
+	[comment @main /]
+	[file ('department.html', false, 'UTF-8')]
+<html>
+<head>
+	<title>NTNU</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+		[for (program : Program | department.programs)]
+			[generate(program)/]
+		[/for]
+</body></html>
+	[/file]
+[/template]
+
+[template public generate(program : Program)]
+	<h1>[program.name/]</h2>
+	[for (semester : Semester | program.baseSemesters)] 
+		[generate(semester)/]
+	[/for]
+	<br/>
+	<br/>
+	[for (specialization: Specialization | program.specializations)]
+		[generate(specialization)/]
+		<br/>
+		<br/>
+	[/for]
+[/template]
+
+[template public generate(semester: Semester)]
+	<h3>[semester.season/] [2014 + semester.year/]</h3>
+	[for (slot: Slot | semester.slots)]
+		<button style="width: 300px;">[generate(slot)/]</button>
+	[/for]
+[/template]
+
+[template public generate(slot: Slot)]
+	[for(course: Course | slot.availableCourses)]
+		[generate(course)/]
+	[/for]
+[/template]
+
+[template public generate(course: Course)]
+	<p>[course.name/] [course.credits/]stp.</p>
+[/template]
+
+[template public generate(specialization: Specialization)]
+	<h2>[specialization.name/]</h2>
+	[for (semester : Semester | specialization.specializationSemesters)] 
+		[generate(semester)/]
+	[/for]
+	[for (specialization: Specialization | specialization.additionalSpecializations)]
+		[generate(specialization)/]
+	<br/>
+	[/for]
+[/template]

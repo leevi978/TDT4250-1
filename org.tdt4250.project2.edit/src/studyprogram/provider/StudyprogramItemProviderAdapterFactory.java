@@ -95,29 +95,6 @@ public class StudyprogramItemProviderAdapterFactory extends StudyprogramAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link studyprogram.Base} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BaseItemProvider baseItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link studyprogram.Base}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBaseAdapter() {
-		if (baseItemProvider == null) {
-			baseItemProvider = new BaseItemProvider(this);
-		}
-
-		return baseItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link studyprogram.Specialization} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,26 +187,26 @@ public class StudyprogramItemProviderAdapterFactory extends StudyprogramAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link studyprogram.CourseCatalog} instances.
+	 * This keeps track of the one adapter used for all {@link studyprogram.Department} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CourseCatalogItemProvider courseCatalogItemProvider;
+	protected DepartmentItemProvider departmentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link studyprogram.CourseCatalog}.
+	 * This creates an adapter for a {@link studyprogram.Department}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCourseCatalogAdapter() {
-		if (courseCatalogItemProvider == null) {
-			courseCatalogItemProvider = new CourseCatalogItemProvider(this);
+	public Adapter createDepartmentAdapter() {
+		if (departmentItemProvider == null) {
+			departmentItemProvider = new DepartmentItemProvider(this);
 		}
 
-		return courseCatalogItemProvider;
+		return departmentItemProvider;
 	}
 
 	/**
@@ -338,12 +315,11 @@ public class StudyprogramItemProviderAdapterFactory extends StudyprogramAdapterF
 	@Override
 	public void dispose() {
 		if (programItemProvider != null) programItemProvider.dispose();
-		if (baseItemProvider != null) baseItemProvider.dispose();
 		if (specializationItemProvider != null) specializationItemProvider.dispose();
 		if (semesterItemProvider != null) semesterItemProvider.dispose();
 		if (slotItemProvider != null) slotItemProvider.dispose();
 		if (courseItemProvider != null) courseItemProvider.dispose();
-		if (courseCatalogItemProvider != null) courseCatalogItemProvider.dispose();
+		if (departmentItemProvider != null) departmentItemProvider.dispose();
 	}
 
 }

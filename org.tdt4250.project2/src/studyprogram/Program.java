@@ -2,6 +2,7 @@
  */
 package studyprogram;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link studyprogram.Program#getName <em>Name</em>}</li>
- *   <li>{@link studyprogram.Program#getProgramBase <em>Program Base</em>}</li>
- *   <li>{@link studyprogram.Program#getTotalBaseCredits <em>Total Base Credits</em>}</li>
+ *   <li>{@link studyprogram.Program#getBaseSemesters <em>Base Semesters</em>}</li>
+ *   <li>{@link studyprogram.Program#getSpecializations <em>Specializations</em>}</li>
  * </ul>
  *
  * @see studyprogram.StudyprogramPackage#getProgram()
@@ -46,74 +47,27 @@ public interface Program extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Program Base</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Base Semesters</b></em>' containment reference list.
+	 * The list contents are of type {@link studyprogram.Semester}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Program Base</em>' containment reference.
-	 * @see #setProgramBase(Base)
-	 * @see studyprogram.StudyprogramPackage#getProgram_ProgramBase()
+	 * @return the value of the '<em>Base Semesters</em>' containment reference list.
+	 * @see studyprogram.StudyprogramPackage#getProgram_BaseSemesters()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Base getProgramBase();
+	EList<Semester> getBaseSemesters();
 
 	/**
-	 * Sets the value of the '{@link studyprogram.Program#getProgramBase <em>Program Base</em>}' containment reference.
+	 * Returns the value of the '<em><b>Specializations</b></em>' containment reference list.
+	 * The list contents are of type {@link studyprogram.Specialization}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Program Base</em>' containment reference.
-	 * @see #getProgramBase()
+	 * @return the value of the '<em>Specializations</em>' containment reference list.
+	 * @see studyprogram.StudyprogramPackage#getProgram_Specializations()
+	 * @model containment="true"
 	 * @generated
 	 */
-	void setProgramBase(Base value);
-
-	/**
-	 * Returns the value of the '<em><b>Total Base Credits</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Total Base Credits</em>' attribute.
-	 * @see #isSetTotalBaseCredits()
-	 * @see #unsetTotalBaseCredits()
-	 * @see #setTotalBaseCredits(double)
-	 * @see studyprogram.StudyprogramPackage#getProgram_TotalBaseCredits()
-	 * @model unique="false" unsettable="true" required="true" transient="true" volatile="true" derived="true" ordered="false"
-	 * @generated
-	 */
-	double getTotalBaseCredits();
-
-	/**
-	 * Sets the value of the '{@link studyprogram.Program#getTotalBaseCredits <em>Total Base Credits</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Total Base Credits</em>' attribute.
-	 * @see #isSetTotalBaseCredits()
-	 * @see #unsetTotalBaseCredits()
-	 * @see #getTotalBaseCredits()
-	 * @generated
-	 */
-	void setTotalBaseCredits(double value);
-
-	/**
-	 * Unsets the value of the '{@link studyprogram.Program#getTotalBaseCredits <em>Total Base Credits</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetTotalBaseCredits()
-	 * @see #getTotalBaseCredits()
-	 * @see #setTotalBaseCredits(double)
-	 * @generated
-	 */
-	void unsetTotalBaseCredits();
-
-	/**
-	 * Returns whether the value of the '{@link studyprogram.Program#getTotalBaseCredits <em>Total Base Credits</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Total Base Credits</em>' attribute is set.
-	 * @see #unsetTotalBaseCredits()
-	 * @see #getTotalBaseCredits()
-	 * @see #setTotalBaseCredits(double)
-	 * @generated
-	 */
-	boolean isSetTotalBaseCredits();
+	EList<Specialization> getSpecializations();
 
 } // Program

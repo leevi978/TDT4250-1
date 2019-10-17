@@ -7,6 +7,8 @@ package studyprogram.validation;
 import org.eclipse.emf.common.util.EList;
 
 import studyprogram.Base;
+import studyprogram.Semester;
+import studyprogram.Specialization;
 
 /**
  * A sample validator interface for {@link studyprogram.Program}.
@@ -20,6 +22,10 @@ public interface ProgramValidator {
 	boolean validateName(String value);
 	boolean validateProgramBase(Base value);
 	boolean validateTotalBaseCredits(double value);
+
+	boolean validateBaseSemesters(EList<Semester> value);
+
+	boolean validateSpecializations(EList<Specialization> value);
 
 	boolean validateTotalCredits(double value);
 

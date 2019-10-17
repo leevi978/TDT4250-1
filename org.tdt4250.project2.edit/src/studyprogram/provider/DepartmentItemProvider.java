@@ -22,17 +22,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import studyprogram.CourseCatalog;
+import studyprogram.Department;
 import studyprogram.StudyprogramFactory;
 import studyprogram.StudyprogramPackage;
 
 /**
- * This is the item provider adapter for a {@link studyprogram.CourseCatalog} object.
+ * This is the item provider adapter for a {@link studyprogram.Department} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CourseCatalogItemProvider 
+public class DepartmentItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class CourseCatalogItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CourseCatalogItemProvider(AdapterFactory adapterFactory) {
+	public DepartmentItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,7 +77,8 @@ public class CourseCatalogItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(StudyprogramPackage.Literals.COURSE_CATALOG__COURSES);
+			childrenFeatures.add(StudyprogramPackage.Literals.DEPARTMENT__COURSES);
+			childrenFeatures.add(StudyprogramPackage.Literals.DEPARTMENT__PROGRAMS);
 		}
 		return childrenFeatures;
 	}
@@ -96,14 +97,14 @@ public class CourseCatalogItemProvider
 	}
 
 	/**
-	 * This returns CourseCatalog.gif.
+	 * This returns Department.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CourseCatalog"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Department"));
 	}
 
 	/**
@@ -114,7 +115,7 @@ public class CourseCatalogItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CourseCatalog_type");
+		return getString("_UI_Department_type");
 	}
 
 
@@ -129,8 +130,9 @@ public class CourseCatalogItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CourseCatalog.class)) {
-			case StudyprogramPackage.COURSE_CATALOG__COURSES:
+		switch (notification.getFeatureID(Department.class)) {
+			case StudyprogramPackage.DEPARTMENT__COURSES:
+			case StudyprogramPackage.DEPARTMENT__PROGRAMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -150,8 +152,13 @@ public class CourseCatalogItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StudyprogramPackage.Literals.COURSE_CATALOG__COURSES,
+				(StudyprogramPackage.Literals.DEPARTMENT__COURSES,
 				 StudyprogramFactory.eINSTANCE.createCourse()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StudyprogramPackage.Literals.DEPARTMENT__PROGRAMS,
+				 StudyprogramFactory.eINSTANCE.createProgram()));
 	}
 
 	/**
